@@ -19,25 +19,21 @@ public class listCategoryServlet extends HttpServlet{
 		int start = 0;
 		int count = 5;
 		int last = categoryDao.getTotal();
+		
 		//检查是否传过来了start和count
-		if(request.getAttribute("start") != null){
-			start = (int) request.getAttribute("start");
-		}
-		if(request.getAttribute("count") != null){
-			count = (int) request.getAttribute("count");
+		try{
+		    start = Integer.parseInt(request.getParameter("start"));
+		}catch(NumberFormatException e){
+			start = 0;
 		}
 		
 		//计算最后一页的start
 		if(last % count == 0){
 			last = last - count;
+			System.out.println(last);
 		}else{
 			last = last - last%count;
-		}
-		
-		if(start < 0){
-			start = 0;
-		}else if(start > last){
-			start = last;
+			System.out.println(last);
 		}
 		
 		List<Category> categorys = categoryDao.list(start, count);
@@ -45,8 +41,9 @@ public class listCategoryServlet extends HttpServlet{
 		request.setAttribute("categorys", categorys);
 		request.setAttribute("start", start);
 		request.setAttribute("last", last);
+		request.setAttribute("count", count);
 		
-		request.getRequestDispatcher("views/admin/listCategory.jsp").forward(request, response);;
+		request.getRequestDispatcher("admin/listCategory.jsp").forward(request, response);;
 	}
 
 }

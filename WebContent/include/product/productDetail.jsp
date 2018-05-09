@@ -4,7 +4,16 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false"%>
+<%--在页面中使用JSTL需要在jsp中 通过指令进行设置
+    prefix="c" 表示后续的标签使用都会以<c: 开头 --%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+<%--fmt 标签常用来进行格式化，其中fmt:formatNumber用于格式化数字,使用之前要加下面的语句 --%>
+<%--fmt 标签常用来进行格式化，其中fmt:formatDate 用于格式化日期,使用之前也是加下面的语句 --%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix='fmt' %>  
+
+<%--fn标签提供各种实用功能，首先使用之前使用加入如下指令 --%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
 	
 <div class="productDetailDiv" >
 	<div class="productDetailTopPart">

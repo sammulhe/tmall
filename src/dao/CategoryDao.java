@@ -71,7 +71,7 @@ public class CategoryDao {
 			Statement s = connection.createStatement();
 			ResultSet rs = s.executeQuery(sql);
 	    	total = rs.getInt(1);
-	    	System.out.println(total);
+	    	
 	    	connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();

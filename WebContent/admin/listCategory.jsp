@@ -45,7 +45,7 @@ $(function(){
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${thecs}" var="c">
+				<c:forEach items="${categorys}" var="c">
 				
 				<tr>
 					<td>${c.id}</td>
@@ -61,12 +61,30 @@ $(function(){
 				</c:forEach>
 			</tbody>
 		</table>
+		
+		<div style="text-align:right">
+            <a href="?start=0">首页</a>
+            <c:if test="${start-count>=0}">
+               <a href="?start=${start-count }">上一页</a>
+            </c:if>
+            <c:if test="${start-count<0}">  <!--防止越界  -->
+               <a href="?start=0">上一页</a>        
+            </c:if>
+            <c:if test="${start+count<=last}">
+              <a href="?start=${start+count }">下一页</a>
+            </c:if>
+            <c:if test="${start+count>last}">
+              <a href="?start=${last }">下一页</a> <!-- 防止越界 -->
+            </c:if>
+            <a href="?start=${last }">末页</a>
+       </div>
 	</div>
 	
+	<%-- 
 	<div class="pageDiv">
 		<%@include file="../include/admin/adminPage.jsp" %>
 	</div>
-	
+	--%>
 	<div class="panel panel-warning addDiv">
 	  <div class="panel-heading">新增分类</div>
 	  <div class="panel-body">
@@ -94,4 +112,5 @@ $(function(){
 	
 </div>
 
-<%@include file="../include/admin/adminFooter.jsp"%>
+<%--
+<%@include file="../include/admin/adminFooter.jsp"%> --%>
