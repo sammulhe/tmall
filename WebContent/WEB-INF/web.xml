@@ -16,17 +16,36 @@
     <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-    <!--浏览商品的servlet -->
+    <!--Category相关的servlet-->
+    <!--浏览Category的servlet -->
      <servlet>
         <servlet-name>listCategoryServlet</servlet-name>
-        <servlet-class>servlet.listCategoryServlet</servlet-class>
+        <servlet-class>servlet.category.listCategoryServlet</servlet-class>
     </servlet>
  
     <servlet-mapping>
         <servlet-name>listCategoryServlet</servlet-name>
         <url-pattern>/listCategory</url-pattern>
+    </servlet-mapping>   
+    <!--调到编辑页面的servlet -->
+     <servlet>
+        <servlet-name>editCategory</servlet-name>
+        <servlet-class>servlet.category.editCategory</servlet-class>
+    </servlet>
+ 
+    <servlet-mapping>
+        <servlet-name>editCategory</servlet-name>
+        <url-pattern>/admin_category_edit</url-pattern>
     </servlet-mapping>
-    
-
+    <!--更新Category的servlet -->
+    <servlet>
+        <servlet-name>updateCategory</servlet-name>
+        <servlet-class>servlet.category.updateCategory</servlet-class>
+    </servlet>
+ 
+    <servlet-mapping>
+        <servlet-name>updateCategory</servlet-name>
+        <url-pattern>/admin_category_update</url-pattern>
+    </servlet-mapping>
   
 </web-app>

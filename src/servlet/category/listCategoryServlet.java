@@ -1,4 +1,4 @@
-package servlet;
+package servlet.category;
 
 import java.io.IOException;
 import java.util.List;
@@ -30,10 +30,8 @@ public class listCategoryServlet extends HttpServlet{
 		//计算最后一页的start
 		if(last % count == 0){
 			last = last - count;
-			System.out.println(last);
 		}else{
 			last = last - last%count;
-			System.out.println(last);
 		}
 		
 		List<Category> categorys = categoryDao.list(start, count);

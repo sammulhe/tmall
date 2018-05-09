@@ -46,7 +46,6 @@ public class CategoryDao {
 	    		Category c = new Category();
 	    		c.setId(rs.getInt(1));
 	    		c.setName(rs.getString(2));
-	    		c.setImage(rs.getString(3));
 	    		
 	            categorys.add(c);
 	    	}
@@ -78,5 +77,50 @@ public class CategoryDao {
 		}
 
     	return total;
+    }
+    
+    
+    //根据id获得一个Category
+    public Category getOne(int id){
+    	Category category = new Category();
+    	String sql = "select * from category where id = ?";
+    	
+    	try {
+			Connection connection = this.getConnection();
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+			
+			category.setId(rs.getInt(1));
+			category.setName(rs.getString(2));
+			
+			connection.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    	return category;
+    }
+    
+    
+    //更新一个Category
+    public void update(Category category){
+    	String sql = "update category set name=? where id=? ";
+    	
+    	try {
+			Connection connection = this.getConnection();
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setString(1, category.getName());
+			ps.setInt(2, category.getId());
+            ps.executeUpdate();
+            
+            connection.close();
+            
+    	} catch (SQLException e) {
+			e.printStackTrace();
+		}
+    	
+    	
     }
 }
