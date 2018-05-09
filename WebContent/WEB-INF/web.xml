@@ -25,7 +25,7 @@
  
     <servlet-mapping>
         <servlet-name>listCategoryServlet</servlet-name>
-        <url-pattern>/listCategory</url-pattern>
+        <url-pattern>/admin_category_list</url-pattern>
     </servlet-mapping>   
     <!--调到编辑页面的servlet -->
      <servlet>
@@ -66,6 +66,60 @@
     <servlet-mapping>
         <servlet-name>addCategory</servlet-name>
         <url-pattern>/admin_category_add</url-pattern>
+    </servlet-mapping>
+    
+    
+    <!--property相关操作 -->
+    <!--浏览Category_property-->
+    <servlet>
+        <servlet-name>listProperty</servlet-name>
+        <servlet-class>servlet.property.listProperty</servlet-class>
+    </servlet>
+ 
+    <servlet-mapping>
+        <servlet-name>listProperty</servlet-name>
+        <url-pattern>/admin_property_list</url-pattern>
+    </servlet-mapping>
+    <!--跳到编辑property的页面-->
+    <servlet>
+        <servlet-name>editProperty</servlet-name>
+        <servlet-class>servlet.property.editProperty</servlet-class>
+    </servlet>
+ 
+    <servlet-mapping>
+        <servlet-name>editProperty</servlet-name>
+        <url-pattern>/admin_property_edit</url-pattern>
+    </servlet-mapping>
+    <!--更新property同时跳到listProperty,即是访问/admin_property_list -->
+    <!--跳到编辑property的页面-->
+    <servlet>
+        <servlet-name>updateProperty</servlet-name>
+        <servlet-class>servlet.property.updateProperty</servlet-class>
+    </servlet>
+ 
+    <servlet-mapping>
+        <servlet-name>updateProperty</servlet-name>
+        <url-pattern>/admin_property_update</url-pattern>
+    </servlet-mapping>
+    <!--删除一个Property，同时跳到listProperty页面 -->
+    <servlet>
+        <servlet-name>deleteProperty</servlet-name>
+        <servlet-class>servlet.property.deleteProperty</servlet-class>
+    </servlet>
+ 
+    <servlet-mapping>
+        <servlet-name>deleteProperty</servlet-name>
+        <url-pattern>/admin_property_delete</url-pattern>
+    </servlet-mapping>
+    <!--添加一个Property,同时跳到listProperty页面-->
+    <servlet>
+        <servlet-name>addProperty</servlet-name>
+        <servlet-class>servlet.property.addProperty</servlet-class>
+    </servlet>
+ 
+    <servlet-mapping>
+        <servlet-name>addProperty</servlet-name>
+        <url-pattern>/admin_property_add</url-pattern>
     </servlet-mapping>
   
 </web-app>

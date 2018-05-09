@@ -114,5 +114,4 @@ $(function(){
 	
 </div>
 
-<%--
-<%@include file="../include/admin/adminFooter.jsp"%> --%>
+<%@include file="../include/admin/adminFooter.jsp"%> 

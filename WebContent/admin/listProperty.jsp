@@ -27,7 +27,7 @@
 
 	<ol class="breadcrumb">
 	  <li><a href="admin_category_list">所有分类</a></li>
-	  <li><a href="admin_property_list?cid=${c.id}">${c.name}</a></li>
+	  <li><a href="admin_property_list?cid=${category.id}">${category.name}</a></li>
 	  <li class="active">属性管理</li>
 	</ol>
 
@@ -45,7 +45,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${ps}" var="p">
+				<c:forEach items="${properties}" var="p">
 
 					<tr>
 						<td>${p.id}</td>
@@ -61,11 +61,11 @@
 			</tbody>
 		</table>
 	</div>
-
+<%-- 
 	<div class="pageDiv">
-		<%@include file="../include/admin/adminPage.jsp"%>
+		<%@include file="../include/admin/adminPage.jsp"
 	</div>
-
+--%>
 	<div class="panel panel-warning addDiv">
 		<div class="panel-heading">新增属性</div>
 		<div class="panel-body">
@@ -78,7 +78,7 @@
 					</tr>
 					<tr class="submitTR">
 						<td colspan="2" align="center">
-							<input type="hidden" name="cid" value="${c.id}">
+							<input type="hidden" name="cid" value="${category.id}">
 							<button type="submit" class="btn btn-success">提 交</button>
 						</td>
 					</tr>
