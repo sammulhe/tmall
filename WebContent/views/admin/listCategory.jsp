@@ -81,20 +81,15 @@
                                         <th>分类id</th>
                                         <th>分类名称</th>
 
-                                        <th>编辑分类</th>
-                                        <th>产品管理</th>
-                                        <th>属性管理</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <c:forEach items="${categorys}" var="c">
                                         <tr>
                                             <td>${c.id}</td>
+                                            <td><img src=""></td>
                                             <td>${c.name}</td>
-
-                                            <td><a href="editCategory?id=${c.id}&name=${c.name}"><span class="glyphicon glyphicon-th-list"></span></a></td>
-                                            <td><a href="listProduct?category_id=${c.id}"><span class="glyphicon glyphicon-shopping-cart"></span></a></td>
-                                            <td><a href="listProperty?category_id=${c.id}"><span class="glyphicon glyphicon-edit"></span></a></td>
+                                             
                                         </tr>
                                     </c:forEach>
                                     </tbody>
