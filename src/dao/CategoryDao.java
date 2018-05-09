@@ -123,4 +123,39 @@ public class CategoryDao {
     	
     	
     }
+    
+    //删除一个Category
+    public void delete(int id){
+    	String sql = " delete from category where id= ?";
+    	try {
+			Connection connection = this.getConnection();
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setInt(1, id);
+			ps.execute();
+			
+			connection.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    
+    //增加一个Category
+    public void add(Category category){
+    	String sql = "insert into category (name) values (?)";
+    	
+    	try {
+			Connection connection = this.getConnection();
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setString(1, category.getName());			
+			ps.execute();
+			
+			connection.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    }
+    
 }

@@ -47,5 +47,25 @@
         <servlet-name>updateCategory</servlet-name>
         <url-pattern>/admin_category_update</url-pattern>
     </servlet-mapping>
+    <!--删除Category的servlet -->
+    <servlet>
+        <servlet-name>deleteCategory</servlet-name>
+        <servlet-class>servlet.category.deleteCategory</servlet-class>
+    </servlet>
+ 
+    <servlet-mapping>
+        <servlet-name>deleteCategory</servlet-name>
+        <url-pattern>/admin_category_delete</url-pattern>
+    </servlet-mapping>
+    <!--增加一个Category的servlet -->
+    <servlet>
+        <servlet-name>addCategory</servlet-name>
+        <servlet-class>servlet.category.addCategory</servlet-class>
+    </servlet>
+ 
+    <servlet-mapping>
+        <servlet-name>addCategory</servlet-name>
+        <url-pattern>/admin_category_add</url-pattern>
+    </servlet-mapping>
   
 </web-app>
