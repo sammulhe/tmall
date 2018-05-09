@@ -34,7 +34,7 @@
 
 	<ol class="breadcrumb">
 	  <li><a href="admin_category_list">所有分类</a></li>
-	  <li><a href="admin_product_list?cid=${c.id}">${c.name}</a></li>
+	  <li><a href="admin_product_list?cid=${category.id}">${category.name}</a></li>
 	  <li class="active">产品管理</li>
 	</ol>
 
@@ -59,19 +59,19 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${ps}" var="p">
+				<c:forEach items="${products}" var="p">
 					<tr>
 						<td>${p.id}</td>
 						<td>
 						
-						<c:if test="${!empty p.firstProductImage}">
-							<img width="40px" src="img/productSingle/${p.firstProductImage.id}.jpg">
+						<c:if test="${!empty p.id}">
+							<img width="40px" src="img/productSingle/${p.id}.jpg">
 						</c:if>
 						
 						</td>
 						<td>${p.name}</td>
 						<td>${p.subTitle}</td>
-						<td>${p.orignalPrice}</td>
+						<td>${p.originalPrice}</td>
 						<td>${p.promotePrice}</td>
 						<td>${p.stock}</td>
 						<td><a href="admin_productImage_list?pid=${p.id}"><span
@@ -89,11 +89,28 @@
 				</c:forEach>
 			</tbody>
 		</table>
+		
+		<div style="text-align:right">
+            <a href="?start=0&cid=${category.id }">首页</a>
+            <c:if test="${start-count>=0}">
+               <a href="?start=${start-count }&cid=${category.id }">上一页</a>
+            </c:if>
+            <c:if test="${start-count<0}">  <!--防止越界  -->
+               <a href="?start=0&cid=${category.id }">上一页</a>        
+            </c:if>
+            <c:if test="${start+count<=last}">
+              <a href="?start=${start+count }&cid=${category.id }">下一页</a>
+            </c:if>
+            <c:if test="${start+count>last}">
+              <a href="?start=${last }&cid=${category.id }">下一页</a> <!-- 防止越界 -->
+            </c:if>
+            <a href="?start=${last }&cid=${category.id }">末页</a>
+       </div>
 	</div>
-
+<%-- 
 	<div class="pageDiv">
 		<%@include file="../include/admin/adminPage.jsp"%>
-	</div>
+	</div>--%>
 
 	<div class="panel panel-warning addDiv">
 		<div class="panel-heading">新增产品</div>
@@ -112,7 +129,7 @@
 					</tr>
 					<tr>
 						<td>原价格</td>
-						<td><input id="orignalPrice" value="99.98" name="orignalPrice" type="text"
+						<td><input id="originalPrice" value="99.98" name="originalPrice" type="text"
 							class="form-control"></td>
 					</tr>
 					<tr>
@@ -127,7 +144,7 @@
 					</tr>
 					<tr class="submitTR">
 						<td colspan="2" align="center">
-							<input type="hidden" name="cid" value="${c.id}">
+							<input type="hidden" name="cid" value="${category.id}">
 							<button type="submit" class="btn btn-success">提 交</button>
 						</td>
 					</tr>

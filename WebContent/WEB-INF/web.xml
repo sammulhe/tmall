@@ -121,5 +121,58 @@
         <servlet-name>addProperty</servlet-name>
         <url-pattern>/admin_property_add</url-pattern>
     </servlet-mapping>
-  
+    
+    
+    <!--product相关操作 -->
+    <!--浏览product-->
+    <servlet>
+        <servlet-name>listProduct</servlet-name>
+        <servlet-class>servlet.product.listProduct</servlet-class>
+    </servlet>
+ 
+    <servlet-mapping>
+        <servlet-name>listProduct</servlet-name>
+        <url-pattern>/admin_product_list</url-pattern>
+    </servlet-mapping>
+    <!--跳到编辑页-->
+    <servlet>
+        <servlet-name>editProduct</servlet-name>
+        <servlet-class>servlet.product.editProduct</servlet-class>
+    </servlet>
+ 
+    <servlet-mapping>
+        <servlet-name>editProduct</servlet-name>
+        <url-pattern>/admin_product_edit</url-pattern>
+    </servlet-mapping>
+    <!--更新-->
+    <servlet>
+        <servlet-name>updateProduct</servlet-name>
+        <servlet-class>servlet.product.updateProduct</servlet-class>
+    </servlet>
+ 
+    <servlet-mapping>
+        <servlet-name>updateProduct</servlet-name>
+        <url-pattern>/admin_product_update</url-pattern>
+    </servlet-mapping>
+    <!--删除-->
+    <servlet>
+        <servlet-name>deleteProduct</servlet-name>
+        <servlet-class>servlet.product.deleteProduct</servlet-class>
+    </servlet>
+ 
+    <servlet-mapping>
+        <servlet-name>deleteProduct</servlet-name>
+        <url-pattern>/admin_product_delete</url-pattern>
+    </servlet-mapping>
+    <!--添加-->
+    <servlet>
+        <servlet-name>addProduct</servlet-name>
+        <servlet-class>servlet.product.addProduct</servlet-class>
+    </servlet>
+ 
+    <servlet-mapping>
+        <servlet-name>addProduct</servlet-name>
+        <url-pattern>/admin_product_add</url-pattern>
+    </servlet-mapping>
+    
 </web-app>

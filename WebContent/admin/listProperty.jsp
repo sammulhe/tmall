@@ -60,6 +60,22 @@
 				</c:forEach>
 			</tbody>
 		</table>
+		<div style="text-align:right">
+            <a href="?start=0&cid=${category.id }">首页</a>
+            <c:if test="${start-count>=0}">
+               <a href="?start=${start-count }&cid=${category.id }">上一页</a>
+            </c:if>
+            <c:if test="${start-count<0}">  <!--防止越界  -->
+               <a href="?start=0&cid=${category.id }">上一页</a>        
+            </c:if>
+            <c:if test="${start+count<=last}">
+              <a href="?start=${start+count }&cid=${category.id }">下一页</a>
+            </c:if>
+            <c:if test="${start+count>last}">
+              <a href="?start=${last }&cid=${category.id }">下一页</a> <!-- 防止越界 -->
+            </c:if>
+            <a href="?start=${last }&cid=${category.id }">末页</a>
+       </div>
 	</div>
 <%-- 
 	<div class="pageDiv">

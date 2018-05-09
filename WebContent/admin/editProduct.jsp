@@ -33,8 +33,8 @@ $(function() {
 <div class="workingArea">
 	<ol class="breadcrumb">
 	  <li><a href="admin_category_list">所有分类</a></li>
-	  <li><a href="admin_product_list?cid=${p.category.id}">${p.category.name}</a></li>
-	  <li class="active">${p.name}</li>
+	  <li><a href="admin_product_list?cid=${product.category.id}">${product.category.name}</a></li>
+	  <li class="active">${product.name}</li>
 	  <li class="active">编辑产品</li>
 	</ol>
 	
@@ -45,35 +45,35 @@ $(function() {
 				<table class="editTable">
 					<tr>
 						<td>产品名称</td>
-						<td><input id="name" name="name" value="${p.name}"
+						<td><input id="name" name="name" value="${product.name}"
 							type="text" class="form-control"></td>
 					</tr>
 					<tr>
 						<td>产品小标题</td>
 						<td><input id="subTitle" name="subTitle" type="text"
-						value="${p.subTitle}"
+						value="${product.subTitle}"
 							class="form-control"></td>
 					</tr>
 					<tr>
 						<td>原价格</td>
-						<td><input id="orignalPrice" value="${p.orignalPrice}" name="orignalPrice" type="text"
+						<td><input id="originalPrice" value="${product.originalPrice}" name="originalPrice" type="text"
 							class="form-control"></td>
 					</tr>
 					<tr>
 						<td>优惠价格</td>
-						<td><input id="promotePrice"  value="${p.promotePrice}" name="promotePrice" type="text"
+						<td><input id="promotePrice"  value="${product.promotePrice}" name="promotePrice" type="text"
 							class="form-control"></td>
 					</tr>
 					<tr>
 						<td>库存</td>
-						<td><input id="stock"  value="${p.stock}" name="stock" type="text"
+						<td><input id="stock"  value="${product.stock}" name="stock" type="text"
 							class="form-control"></td>
 					</tr>
 										
 					<tr class="submitTR">
 						<td colspan="2" align="center">
-						<input type="hidden" name="id" value="${p.id}">
-						<input type="hidden" name="cid" value="${p.category.id}">
+						<input type="hidden" name="id" value="${product.id}">
+						<input type="hidden" name="cid" value="${product.category.id}">
 						<button type="submit" class="btn btn-success">提 交</button></td>
 					</tr>
 				</table>
